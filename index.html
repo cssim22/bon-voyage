@@ -3,11 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Lawrence App</title>
+    <style>
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="client/map.js"></script>
     <!-- <link rel="stylesheet" href=""> -->
   </head>
   <body>
     <h1>App</h1>
     <div id="root"></div>
+    <div id="map"></div>
     <script src="build/bundle.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4ASEqYx1KR_ivk3v1kntziAPUi1Z3qek&callback=initMap"
+      async
+    ></script>
   </body>
 </html>
