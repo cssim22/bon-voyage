@@ -14,7 +14,7 @@ const DayView = props => {
           <Route exact path='/day-view'>
             <h2>Day One</h2>
             <Link to='/full-trip'>
-              {/* sends to trip modal page */}
+              {/* sends to full trip view */}
               <button>Back</button>
             </Link>
             {/* need event component */}

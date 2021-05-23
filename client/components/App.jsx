@@ -34,12 +34,12 @@ function App() {
   return(
     <Router>
       <div className="app">
-        <Link to='/trip-modal'>
+        {/* <Link to='/trip-modal'>
           <button onClick={openPinModal}>
             Pin
           </button>
-        </Link>
-        <Link to='/api/new-trip'>
+        </Link> */}
+        <Link to='/new-trip'>
           <button onClick={openNewTripModal}>
             Add Trip
           </button>
