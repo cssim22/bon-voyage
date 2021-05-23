@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Modal from 'react-modal';
 import FullTripView from './FullTripView.jsx';
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 function TripModal() {
   // declare new state variables by calling the useState Hook. useState returns an array with a pair of values, a variable and a function that allows us to update that variable
@@ -38,13 +38,5 @@ function TripModal() {
   )
 }
 
-// class Modal extends Component {
-//   render() {
-
-//     return(
-//       <div>Modal</div>
-//     )
-//   }
-// }
 
 export default TripModal;
