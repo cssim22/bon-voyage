@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import TripModal from './TripModal.jsx';
 import NewTripModal from './NewTripModal.jsx';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Map from './Map.jsx'
 // import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -31,7 +32,19 @@ function App() {
   }
 
   return(
-    // <Rotuer>
+    <Router>
+      <div className="App">
+        <Link to='/trip-modal'>
+          <button onClick={openPinModal}>
+            Pin
+          </button>
+        </Link>
+        <Link to='/api/new-trip'>
+        <button onClick={openNewTripModal}>
+          Add Trip
+        </button>
+        </Link>
+        <Modal 
       <div className="app">
         <button onClick={openPinModal}>
           Pin
@@ -44,19 +57,22 @@ function App() {
           isOpen={pinModalIsOpen}
           onRequestClose={closePinModal}
           contentLabel='Modal to view existing pins'
-          >
-            <TripModal  />
-          </Modal>
+        >
+          <TripModal  />
+        </Modal>
         <Modal
           isOpen={newTripModalIsOpen}
           onRequestClose={closeNewTripModal}
           contentLabel='Modal to add new trip'
           >
             <NewTripModal/>
+          </Modal>
+
+      </div>
+    <>
         </Modal>
       </div>
       
-    // </Rotuer>
   );
 };
 

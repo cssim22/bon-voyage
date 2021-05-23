@@ -1,6 +1,8 @@
 // import the useState hook from React, which lets us keep local state in a function component
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Modal from 'react-modal';
+import FullTripView from './FullTripView.jsx';
 
 // Modal.setAppElement('#root');
 
@@ -14,17 +16,25 @@ function TripModal() {
   const [people, updatePeople] = useState('Team Pink Fairy Armadillos');
 
   return (
-    <div>
-      <h3>Trip: {tripName}</h3>
-      <h3>Date: {date}</h3>
-      <h3>PLACEHOLDER FOR IMG</h3>
-      {/* <img/> */}
-      <h3>People: {people}</h3>
-      <button onClick={() => updateTrip('Capetown')}>See Details
-      </button>
-      <button>Add Details
-      </button>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path='/trip-modal'>
+            <h3>Trip: {tripName}</h3>
+            <h3>Date: {date}</h3>
+            <h3>PLACEHOLDER FOR IMG</h3>
+            {/* <img/> */}
+            <h3>People: {people}</h3>
+            <Link to='/full-trip'>
+              <button>
+                See Trip Details
+              </button>
+            </Link>
+          </Route>
+          <Route exact path='/full-trip' component={FullTripView}/>
+        </Switch>
+      </div>
+    </Router>
   )
 }
 

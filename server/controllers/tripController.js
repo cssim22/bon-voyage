@@ -5,8 +5,9 @@ const tripController = {};
 
 
 tripController.addTrip = (req, res, next) => {
-  console.log('made it inside tripcontroller')
-  const {name, start_date, end_date, people, location} = req.query;
+  console.log('made it inside trip controller')
+  console.log('before json', req.body);
+  const {name, start_date, end_date, people, location} = req.body;
 
   const input = [name, start_date, end_date, people, location];
 
@@ -16,14 +17,13 @@ tripController.addTrip = (req, res, next) => {
   db.query(tripQuery, input)
     .then((data) => {
       console.log('made it to dbQuery');
-      next() 
+      next();
     })
     .catch(err => {
       console.log('went into error in tripcontroller')
       next(err)
     }
     )
-
 };
 
 module.exports = tripController;
