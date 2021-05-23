@@ -4,63 +4,77 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
+const initialState = Object.freeze({
+  name: '',
+  start_date: '',
+  end_date: '',
+  people: '',
+  location: ''
+});
+
 function NewTripModal() {
 
-  const [reqPath, setReqPath] = useState(null);
+  const [formData, updateFormData] = useState(initialState);
 
-  const handleNewLocation = e => {
+  const handleChange = e => {
     e.preventDefault();
-    console.log(e.target.value);
-    setReqPath(e.target.value);
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   }
 
   // define event handler for on click of submit to send post request to the server
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e.target);
-
-    // const data = {
-    //   location: e.target.,
-    //   startDate: ,
-    //   endDate: ,
-    //   people: ,
-    //   image:
-    // }
-
-    //send post request to server
+    console.log(formData);
+    fetch(`/api/new-trip`, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      // url: `/api/new-trip?name=${formData.tripName}&start_date=${formData.startDate}&end_date=${formData.endDate}&people=${formData.people}&location=${formData.location}`
+      body: JSON.stringify(formData)
+    }).then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log('the error is client side'));
   }
 
   return (
-    <Router>
-      <form onSubmit = {handleSubmit}>
-        <label forhtml='tripName'>
-          Location: 
-          </label>
-          <input type="text" name="tripName" onChange={handleNewLocation} />
-          <br></br>
-        <label>
-          Start Date: 
-          <input type="date" name="startDate" />
-          <br></br>
+    <form onSubmit = {handleSubmit}>
+      <label forhtml='tripName'>
+        Trip Name: 
         </label>
-        <label>
-          End Date: 
-          <input type="date" name="endDate" />
-          <br></br>
+        <input name="name" onChange={handleChange} />
+        <br></br>
+      <label>
+        Start Date: 
+        <input type="date" name="start_date" onChange={handleChange}/>
+        <br></br>
+      </label>
+      <label>
+        End Date: 
+        <input type="date" name="end_date" onChange={handleChange} />
+        <br></br>
+      </label>
+      <label>
+        People: 
+        <input name="people" onChange={handleChange} />
+        <br></br>
+      </label>
+      {/* <label>
+        Favorite Picture: 
+        <input type="file" name="coverPicture" onChange={handleChange} />
+        <br></br> */
+      /* </label> */}
+      <label>
+        Location: 
         </label>
-        <label>
-          People: 
-          <input type="text" name="people" />
-          <br></br>
-        </label>
-        <label>
-          Favorite Picture: 
-          <input type="file" name="coverPicture" />
-          <br></br>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    </Router>
+        <input name="location" onChange={handleChange} />
+        <br></br>
+      <input type="submit" value="Submit" />
+    </form>
   )
 }
 

@@ -4,8 +4,8 @@ const path = require('path');
 
 const apiRouter = require('./routes/api');
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+// app.use(express.urlencoded({extended: true}));
+app.use(express.json({type: 'application/x-www-form-urlencoded'}));
 
 
 //define route handlers
