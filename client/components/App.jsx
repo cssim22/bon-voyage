@@ -47,14 +47,14 @@ function App() {
           onRequestClose={closePinModal}
           contentLabel='Modal to view existing pins'
         >
-          <TripModal  />
+          <TripModal />
         </Modal>
         <Modal
           isOpen={newTripModalIsOpen}
           onRequestClose={closeNewTripModal}
           contentLabel='Modal to add new trip'
           >
-            <NewTripModal/>
+            <NewTripModal />
           </Modal>
 
       </div>
