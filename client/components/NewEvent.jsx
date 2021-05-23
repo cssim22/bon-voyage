@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-
 function handleClick(e) {
   // functionality
+  console.log('handle click entered')
 }
 // decalre react hook function
 function NewEvent() {
