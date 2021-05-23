@@ -5,16 +5,45 @@ Modal.setAppElement('#root');
 
 function NewTripModal() {
 
+  const [reqPath, setReqPath] = useState(null);
+
+  const handleNewLocation = e => {
+    e.preventDefault();
+    console.log(e.target.value);
+    reqPath = setReqPath(e.target.value);
+  }
+
+  // define event handler for on click of submit to send post request to the server
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(e.target);
+
+    // const data = {
+    //   location: e.target.,
+    //   startDate: ,
+    //   endDate: ,
+    //   people: ,
+    //   image:
+    // }
+
+    //send post request to server
+  }
+
   return (
-    <form>
-      <label>
+    <form onSubmit = {handleSubmit}>
+      <label forhtml='tripName'>
         Location: 
-        <input type="text" name="tripName" />
+        </label>
+        <input type="text" name="tripName" onChange={handleNewLocation} />
+        <br></br>
+      <label>
+        Start Date: 
+        <input type="date" name="startDate" />
         <br></br>
       </label>
       <label>
-        Date: 
-        <input type="text" name="date" />
+        End Date: 
+        <input type="date" name="endDate" />
         <br></br>
       </label>
       <label>
