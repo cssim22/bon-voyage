@@ -31,7 +31,7 @@ module.exports = {
     publicPath: '/build/',
     port: 8080,
     proxy: {
-      // '/api/leaders': 'http://localhost:3000',
+      '/new-trip': 'http://localhost:3000',
   }
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
