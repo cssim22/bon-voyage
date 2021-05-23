@@ -43,7 +43,7 @@ const FullTripView = (props) => {
             <h3>
               {startDate} to {endDate}
             </h3>
-            <Link to='/trip-modal'>
+            <Link to='/'>
               {/* sends to trip modal page */}
               <button>Back</button>
             </Link>
@@ -63,7 +63,7 @@ const FullTripView = (props) => {
             {/* feel like this button is repetitive */}
             <button>Add Details</button>
           </Route>
-          <Route exact path='/trip-modal' component={TripModal} />
+          <Route exact path='/' component={TripModal} />
           <Route exact path='/day-view' component={DayView} />
         </Switch>
       </div>
