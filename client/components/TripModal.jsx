@@ -19,7 +19,7 @@ function TripModal() {
     <Router>
       <div>
         <Switch>
-          <Route exact path='/trip-modal'>
+          <Route exact path='/'>
             <h3>Trip: {tripName}</h3>
             <h3>Date: {date}</h3>
             <h3>PLACEHOLDER FOR IMG</h3>
