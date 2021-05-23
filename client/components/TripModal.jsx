@@ -2,14 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 function TripModal() {
   // declare new state variables by calling the useState Hook. useState returns an array with a pair of values, a variable and a function that allows us to update that variable
   // array destructuring 
   const [tripName, updateTrip] = useState('Colombia');
-
-  useEffect()
 
   const [date, updateDate] = useState('May 22');
 
@@ -30,13 +28,5 @@ function TripModal() {
   )
 }
 
-// class Modal extends Component {
-//   render() {
-
-//     return(
-//       <div>Modal</div>
-//     )
-//   }
-// }
 
 export default TripModal;

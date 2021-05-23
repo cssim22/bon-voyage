@@ -1,9 +1,15 @@
-#head {
-
+body {
+  min-height: 100%;
 }
 
-modal {
-  /* insert style */
-  size: 100px
+.app {
+  height: 100%;
+}
 
+#root {
+  height: 100%;
+}
+
+.map {
+  height: 100%
 }
