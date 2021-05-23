@@ -17,6 +17,9 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
 })
 
+// add routes for get requests from react and 
+
+//
 
 
 
