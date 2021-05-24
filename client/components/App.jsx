@@ -57,7 +57,7 @@ function App() {
           onRequestClose={closeNewTripModal}
           contentLabel='Modal to add new trip'
           >
-            <NewTripModal/>
+            <NewTripModal closeNewTrip={closeNewTripModal}/>
           </Modal>
       </div>
     </Router>

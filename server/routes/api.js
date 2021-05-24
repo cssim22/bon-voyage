@@ -10,7 +10,7 @@ const app = express.Router();
 //post request
 app.post('/new-trip', tripController.addTrip, (req,res) => {
   console.log('successfully added trip')
-  return res.status(200).json('successfully added trip');
+  return res.status(200).send('successfully added to database');
 });
 
 
