@@ -5,6 +5,7 @@ import DayView from "./DayView.jsx";
 import TripModal from "./TripModal.jsx";
 
 const FullTripView = (props) => {
+  console.log(props)
   // pull in state using useState
   const [tripName, updateTrip] = useState("Montreal");
 

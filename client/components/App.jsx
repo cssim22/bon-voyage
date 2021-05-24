@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import TripModal from './TripModal.jsx';
 import NewTripModal from './NewTripModal.jsx';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { useFetch } from "react-async"
 import Map from './Map.jsx'
 // import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -24,7 +25,9 @@ function App() {
       .then(data => {
         updateTripData(data);
       })
+      .then(() => {return components})
   }, [])
+
 
   // handle events when modals are opened and closed
   function openPinModal() {
@@ -43,7 +46,7 @@ function App() {
     setTripIsOpen(false);
   }
 
-  return(
+  const components = [
     <Router>
       <div className="app">
         {/* <Link to='/trip-modal'>
@@ -79,7 +82,8 @@ function App() {
           </Modal>
       </div>
     </Router>
-  );
+  ];
+  return components;
 };
 
 

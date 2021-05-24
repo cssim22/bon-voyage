@@ -6,7 +6,7 @@ import FullTripView from './FullTripView.jsx';
 
 // Modal.setAppElement('#root');
 
-function TripModal() {
+function TripModal(props) {
   // declare new state variables by calling the useState Hook. useState returns an array with a pair of values, a variable and a function that allows us to update that variable
   // array destructuring 
   const [tripName, updateTrip] = useState('Colombia');
@@ -20,7 +20,7 @@ function TripModal() {
       <div>
         <Switch>
           <Route exact path='/'>
-            <h3>Trip: {tripName}</h3>
+            <h3>Trip: {props.clickLocation}</h3>
             <h3>Date: {date}</h3>
             <h3>PLACEHOLDER FOR IMG</h3>
             {/* <img/> */}
