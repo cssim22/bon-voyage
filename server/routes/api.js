@@ -8,6 +8,11 @@ const app = express.Router();
 
 
 //add a new trip
+// get request
+app.get('/trips', tripController.getTrips);
+
+
+//post request
 app.post('/new-trip', tripController.addTrip, (req,res) => {
   console.log('successfully added trip')
   return res.status(200).send('successfully added trip to database');
@@ -27,6 +32,12 @@ app.delete('/remove-trip', tripController.removeTrip, (req,res) => {
   console.log('successfully removed trip')
   return res.status(200).send('successfully deleted trip from database');
 });
+//link to data
+//POST request
+//db query
+//form data from app and insert into proper table on SQL database
+//test request with Postman
+//use middleware
 
 /////////////////////not finished
 // remove an event from a trip
