@@ -6,13 +6,15 @@ const tripController = require('../controllers/tripController');
 const app = express.Router();
 
 
+// get request
+app.get('/trips', tripController.getTrips);
+
 
 //post request
 app.post('/new-trip', tripController.addTrip, (req,res) => {
-  console.log('successfully added trip')
+  console.log('successfully added trip');
   return res.status(200).json('successfully added trip');
 });
-
 
 //link to data
 //POST request

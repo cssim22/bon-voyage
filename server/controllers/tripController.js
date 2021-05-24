@@ -2,7 +2,18 @@ const db = require('../models/model.js');
 
 const tripController = {};
 
-
+tripController.getTrips = (req, res, next) => {
+  const query = `SELECT * FROM trips`;
+  db.query(query)
+    .then((data) => {
+      // console.log('data.rows', data.rows)
+      return res.status(200).json(data.rows);
+    })
+    .catch(err => {
+      console.log('tripController.getTrips: error getting trips');
+      next(err);
+    })
+}
 
 tripController.addTrip = (req, res, next) => {
   console.log('made it inside trip controller')
