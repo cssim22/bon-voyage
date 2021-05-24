@@ -12,16 +12,10 @@ app.use(express.json({type: 'application/x-www-form-urlencoded'}));
 app.use('/api', apiRouter);
 
 
-
+//deliver main index html
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
 })
-
-// add routes for get requests from react and 
-
-//
-
-
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
