@@ -34,22 +34,16 @@ function App() {
   return(
     <Router>
       <div className="app">
-        {/* <Link to='/'>
+        {/* <Link to='/trip-modal'>
           <button onClick={openPinModal}>
             Pin
           </button>
         </Link> */}
-        <Link to='/api/new-trip'>
-        <button onClick={openNewTripModal}>
-          Add Trip
-        </button>
+        <Link to='/new-trip'>
+          <button onClick={openNewTripModal}>
+            Add Trip
+          </button>
         </Link>
-        {/* <button onClick={openPinModal}>
-          Pin
-        </button>
-        <button onClick={openNewTripModal}>
-          Add Trip
-        </button> */}
         <Map />
         <Modal
           isOpen={pinModalIsOpen}
@@ -65,9 +59,8 @@ function App() {
           >
             <NewTripModal />
           </Modal>
-
       </div>
-      </Router>
+    </Router>
   );
 };
 
