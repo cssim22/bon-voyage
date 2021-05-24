@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
