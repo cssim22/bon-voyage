@@ -46,15 +46,15 @@ function App() {
   return(
     <Router>
       <div className="app">
-        {/* <Link to='/'>
+        {/* <Link to='/trip-modal'>
           <button onClick={openPinModal}>
             Pin
           </button>
         </Link> */}
-        <Link to='/api/new-trip'>
-        <button onClick={openNewTripModal}>
-          Add Trip
-        </button>
+        <Link to='/new-trip'>
+          <button onClick={openNewTripModal}>
+            Add Trip
+          </button>
         </Link>
         {/* <button onClick={openPinModal}>
           Pin
@@ -75,11 +75,10 @@ function App() {
           onRequestClose={closeNewTripModal}
           contentLabel='Modal to add new trip'
           >
-            <NewTripModal/>
+            <NewTripModal closeNewTrip={closeNewTripModal}/>
           </Modal>
-
       </div>
-      </Router>
+    </Router>
   );
 };
 
