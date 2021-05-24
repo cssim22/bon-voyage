@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import TripModal from './TripModal.jsx';
 import NewTripModal from './NewTripModal.jsx';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { useFetch } from "react-async"
 import Map from './Map.jsx'
 // import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -13,6 +14,20 @@ function App() {
   const [pinModalIsOpen, setPinIsOpen] = useState(false);
 
   const [newTripModalIsOpen, setTripIsOpen] = useState(false);
+
+  const [tripData, updateTripData] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/trips')
+      .then(result => {
+        return result.json()
+      })
+      .then(data => {
+        updateTripData(data);
+      })
+      .then(() => {return components})
+  }, [])
+
 
   // handle events when modals are opened and closed
   function openPinModal() {
@@ -31,7 +46,7 @@ function App() {
     setTripIsOpen(false);
   }
 
-  return(
+  const components = [
     <Router>
       <div className="app">
         {/* <Link to='/trip-modal'>
@@ -44,7 +59,13 @@ function App() {
             Add Trip
           </button>
         </Link>
-        <Map />
+        {/* <button onClick={openPinModal}>
+          Pin
+        </button>
+        <button onClick={openNewTripModal}>
+          Add Trip
+        </button> */}
+        <Map tripData={tripData}/>
         <Modal
           isOpen={pinModalIsOpen}
           onRequestClose={closePinModal}
@@ -61,7 +82,8 @@ function App() {
           </Modal>
       </div>
     </Router>
-  );
+  ];
+  return components;
 };
 
 
