@@ -79,13 +79,13 @@ function Map() {
           zoom={2}
         >
         {markerArray}
-        <Modal
+          <Modal
             isOpen={pinModalIsOpen}
             onRequestClose={closePinModal}
             contentLabel='Modal to view existing pins'
             >
               <TripModal clickLocation={clickLocation} />
-            </Modal>
+          </Modal>
         </GoogleMap>
         </div>
       </LoadScript>
