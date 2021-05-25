@@ -12,7 +12,6 @@ const fetchLocations = async () => {
 }
 
 const fetchCoordinates = async (location) => {
-  console.log('location', location);
   const currentCoordinate = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyA4ASEqYx1KR_ivk3v1kntziAPUi1Z3qek`);
   return currentCoordinate.json();
 }
@@ -21,11 +20,9 @@ const convert = async () => {
   const array = [];
   const locationData = await fetchLocations();
   for (let i = 0; i < locationData.length; i++) {
-    console.log('locationData[i]', locationData[i])
     const coord = await fetchCoordinates(locationData[i].location);
     array.push(coord.results[0]);
   }
-  console.log('array', array);
   return array;
 }
 
@@ -61,9 +58,8 @@ function Map() {
 
   if (error) return error;
   if (data) {
-    console.log('data', data);
     for (let i = 0; i < data.length; i++) {
-      let cityName = data[i].address_components[0].short_name
+      let cityName = data[i].address_components[0].long_name
       let coordinates = data[i].geometry.location
       markerArray.push(<Marker position={coordinates} id={data[i]} title={cityName} key={cityName} onClick={openPinModal}/>)
     }
@@ -71,12 +67,15 @@ function Map() {
 
       <LoadScript
         googleMapsApiKey="AIzaSyA4ASEqYx1KR_ivk3v1kntziAPUi1Z3qek"
+        mapIds={["bf7191d71e0bd124"]}
       >
         <div className="map">
         <GoogleMap
+        
           mapContainerStyle={containerStyle}
           center={center}
           zoom={2}
+          options={{ mapId: "bf7191d71e0bd124" }}
         >
         {markerArray}
         <Modal

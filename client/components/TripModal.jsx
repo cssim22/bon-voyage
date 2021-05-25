@@ -15,6 +15,12 @@ function TripModal(props) {
 
   const [people, updatePeople] = useState('Team Pink Fairy Armadillos');
 
+  const [clickLocation, updateClickLocation] = useState('')
+
+  function passLocation() {
+    updateClickLocation(props.clickLocation);
+  }
+
   return (
     <Router>
       <div>
@@ -25,13 +31,15 @@ function TripModal(props) {
             <h3>PLACEHOLDER FOR IMG</h3>
             {/* <img/> */}
             <h3>People: {people}</h3>
-            <Link to='/full-trip'>
+            <Link to='/full-trip'  onClick={passLocation}>
               <button>
                 See Trip Details
               </button>
             </Link>
           </Route>
-          <Route exact path='/full-trip' component={FullTripView}/>
+          <Route exact path='/full-trip'>
+            <FullTripView location={props.clickLocation} />
+          </Route>
         </Switch>
       </div>
     </Router>
