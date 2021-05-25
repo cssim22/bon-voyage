@@ -38,10 +38,10 @@ tripController.addTrip = (req, res, next) => {
 
 tripController.removeTrip = (req, res, next) => {
 	console.log("made it inside trip controller");
-	console.log("req.body in tripcontroller.removeTrip", req.query);
-	const { location } = req.query;
+	console.log("req.body tripcontroller.removeTrip", req.body);
+	const { tripName } = req.body;
 
-	const input = [location];
+	const input = [tripName];
 
 	const tripQuery = `DELETE FROM trips 
   WHERE location = ($1)`;
