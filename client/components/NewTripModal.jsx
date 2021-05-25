@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { TextField } from "@material-ui/core";
 
 Modal.setAppElement("#root");
 
@@ -42,6 +43,7 @@ function NewTripModal(props) {
 				.then((response) => response.json())
 				.then((data) => console.log(data))
 				.then(() => {
+					console.log('submitted trip')
 					window.location = "http://localhost:8080";
 				})
 				.catch((err) => console.log("the error is client side"));
@@ -51,31 +53,15 @@ function NewTripModal(props) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label forhtml="tripName">Trip Name:</label>
-			<input name="name" onChange={handleChange} />
+			<TextField id="name" name="name" label="Give your trip a name" variant="outlined" onChange={handleChange} />
 			<br></br>
-			<label>
-				Start Date:
-				<input type="date" name="start_date" onChange={handleChange} />
-				<br></br>
-			</label>
-			<label>
-				End Date:
-				<input type="date" name="end_date" onChange={handleChange} />
-				<br></br>
-			</label>
-			<label>
-				People:
-				<input name="people" onChange={handleChange} />
-				<br></br>
-			</label>
-			{/* <label>
-        Favorite Picture: 
-        <input type="file" name="coverPicture" onChange={handleChange} />
-        <br></br> */
-			/* </label> */}
-			<label>Location:</label>
-			<input name="location" onChange={handleChange} />
+			<TextField id="start_date" name="start_date" label="Start Date" variant="outlined" onChange={handleChange} />
+			<br></br>
+			<TextField id="end_date" name="end_date" label="End Date" variant="outlined" onChange={handleChange} />
+			<br></br>
+			<TextField id="people" name="people" label="Who did you go with?" variant="outlined" onChange={handleChange} />
+			<br></br>
+			<TextField id="location" name="location" label="City" variant="outlined" onChange={handleChange} />
 			<br></br>
 			<input type="submit" value="Submit" />
 		</form>

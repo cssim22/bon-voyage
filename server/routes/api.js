@@ -3,19 +3,25 @@ const express = require('express');
 
 //middleware
 const tripController = require('../controllers/tripController');
-//const eventController = require('../controllers/eventController');
+const eventController = require('../controllers/eventController');
 const app = express.Router();
 
 
 //add a new trip
 // get request
 app.get('/trips', tripController.getTrips);
+app.get('/events', eventController.getEvents);
 
-
-//post request
+//trip post request
 app.post('/new-trip', tripController.addTrip, (req,res) => {
   console.log('successfully added trip')
   return res.status(200).send('successfully added trip to database');
+});
+
+//event post request
+app.post('/new-event', eventController.addEvent, (req,res) => {
+  console.log('successfully added event')
+  return res.status(200).send('successfully added event to database');
 });
 
 

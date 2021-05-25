@@ -5,6 +5,7 @@ import NewTripModal from './NewTripModal.jsx';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useFetch } from "react-async"
 import Map from './Map.jsx'
+import { Button } from "@material-ui/core";
 // import { BrowserRouter as Router } from 'react-router-dom';
 
 Modal.setAppElement('#root');
@@ -49,22 +50,11 @@ function App() {
   const components = [
     <Router>
       <div className="app">
-        {/* <Link to='/trip-modal'>
-          <button onClick={openPinModal}>
-            Pin
-          </button>
-        </Link> */}
         <Link to='/new-trip'>
-          <button onClick={openNewTripModal}>
+          <Button variant="contained" color="primary" onClick={openNewTripModal}>
             Add Trip
-          </button>
+          </Button>
         </Link>
-        {/* <button onClick={openPinModal}>
-          Pin
-        </button>
-        <button onClick={openNewTripModal}>
-          Add Trip
-        </button> */}
         <Map tripData={tripData}/>
         <Modal
           isOpen={newTripModalIsOpen}

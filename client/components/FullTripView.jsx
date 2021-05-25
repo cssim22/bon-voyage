@@ -5,7 +5,6 @@ import DayView from "./DayView.jsx";
 import TripModal from "./TripModal.jsx";
 
 const FullTripView = (props) => {
-  console.log(props)
   // pull in state using useState
   const [tripName, updateTrip] = useState("Montreal");
 
@@ -16,6 +15,12 @@ const FullTripView = (props) => {
   const [pinModalIsOpen, setPinIsOpen] = useState(false);
 
   const [newTripModalIsOpen, setTripIsOpen] = useState(false);
+
+  const [clickLocation, updateClickLocation] = useState('')
+
+  function passLocation() {
+    updateClickLocation(props.clickLocation);
+  }
 
   // handle events when modals are opened and closed
   function openPinModal() {
@@ -49,7 +54,7 @@ const FullTripView = (props) => {
               <button>Back</button>
             </Link>
             {/* add functionality to send to day view */}
-            <Link to='/day-view'>
+            <Link to='/day-view' onClick={passLocation}>
               <button>See Details</button>
             </Link>
             <table>
@@ -65,7 +70,9 @@ const FullTripView = (props) => {
             <button>Add Details</button>
           </Route>
           <Route exact path='/' component={TripModal} />
-          <Route exact path='/day-view' component={DayView} />
+          <Route exact path='/day-view'>
+            <DayView location={props.location}/>
+          </Route>
         </Switch>
       </div>
     </Router>
