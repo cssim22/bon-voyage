@@ -67,13 +67,6 @@ function App() {
         </button> */}
         <Map tripData={tripData}/>
         <Modal
-          isOpen={pinModalIsOpen}
-          onRequestClose={closePinModal}
-          contentLabel='Modal to view existing pins'
-        >
-          <TripModal  />
-        </Modal>
-        <Modal
           isOpen={newTripModalIsOpen}
           onRequestClose={closeNewTripModal}
           contentLabel='Modal to add new trip'

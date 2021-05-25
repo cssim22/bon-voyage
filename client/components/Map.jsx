@@ -41,7 +41,7 @@ function Map() {
     lng: -38.523
   };
   
-  const [clickLocation, updateClickLocation] = useState('')
+  const [clickLocation, updateClickLocation] = useState('');
   
   function openPinModal() {
     updateClickLocation(this.title);
@@ -63,7 +63,7 @@ function Map() {
   if (data) {
     console.log('data', data);
     for (let i = 0; i < data.length; i++) {
-      let cityName = data[i].address_components[0].short_name
+      let cityName = data[i].address_components[0].long_name
       let coordinates = data[i].geometry.location
       markerArray.push(<Marker position={coordinates} id={data[i]} title={cityName} key={cityName} onClick={openPinModal}/>)
     }
