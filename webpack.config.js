@@ -7,16 +7,17 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
-  mode: "development",
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+              plugins: ['@babel/plugin-transform-runtime', '@babel/transform-async-to-generator'],
           }
         }
       },
@@ -34,5 +35,8 @@ module.exports = {
       '/api': 'http://localhost:3000',
   }
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
 };
