@@ -78,13 +78,13 @@ function Map() {
           options={{ mapId: "bf7191d71e0bd124" }}
         >
         {markerArray}
-        <Modal
+          <Modal
             isOpen={pinModalIsOpen}
             onRequestClose={closePinModal}
             contentLabel='Modal to view existing pins'
             >
               <TripModal clickLocation={clickLocation} />
-            </Modal>
+          </Modal>
         </GoogleMap>
         </div>
       </LoadScript>

@@ -6,17 +6,24 @@
   "scripts": {
     "test": "jest --verbose",
     "start": "node server/server.js",
+    "build": "NODE_ENV=production webpack",
     "dev": "concurrently \"webpack serve --open\" \"nodemon server/server.js\""
+  },
+  "jest": {
+    "globalSetup": "./jest-setup.js",
+    "globalTeardown": "./jest-teardown.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.3",
     "@material-ui/core": "^4.11.4",
     "@react-google-maps/api": "^2.2.0",
     "concurrently": "^6.1.0",
     "express": "^4.17.1",
     "googlemaps": "^1.12.0",
+    "msw": "^0.29.0",
     "nodemon": "^2.0.7",
     "pg": "^8.6.0",
     "react": "^17.0.2",
@@ -24,13 +31,19 @@
     "react-dom": "^17.0.2",
     "react-modal": "^3.13.1",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-test-renderer": "^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "@babel/plugin-transform-react-jsx": "^7.14.3",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^11.2.7",
+    "@types/jest": "^26.0.23",
+    "babel-jest": "^27.0.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^5.2.4",
