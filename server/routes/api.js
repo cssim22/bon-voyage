@@ -5,9 +5,26 @@ const tripController = require('../controllers/tripController');
 const app = express.Router();
 
 
+app.get('/trips', tripController.getTrips);
+app.get('/events', tripController.getEvents);
+
+//trip post request
+app.post('/new-trip', tripController.addTrip, (req,res) => {
+  console.log('successfully added trip')
+  return res.status(200).send('successfully added trip to database');
+});
+
+//trip post request
+app.post('/new-trip', tripController.addTrip, (req,res) => {
+  console.log('successfully added trip')
+  return res.status(200).send('successfully added trip to database');
+});
+
 //add a new trip
 app.get('/trips', tripController.getTrips);
 app.get('/events', eventController.getEvents);
+
+
 
 //trip post request
 app.post('/new-trip', tripController.addTrip, (req,res) => {
