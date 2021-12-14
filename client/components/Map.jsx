@@ -13,6 +13,7 @@ const fetchLocations = async () => {
 
 const fetchCoordinates = async (location) => {
   const currentCoordinate = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyA4ASEqYx1KR_ivk3v1kntziAPUi1Z3qek`);
+  console.log('current Map coordinates',currentCoodinates)
   return currentCoordinate.json();
 }
 
@@ -55,7 +56,7 @@ function Map() {
 
 
   const {data, error} = useAsync({promiseFn: convert})
-
+  console.log('data in map.jsx',data)
   if (error) return error;
   if (data) {
     for (let i = 0; i < data.length; i++) {

@@ -1,14 +1,11 @@
 const path = require('path');
 const express = require('express');
-
-//middleware
-const tripController = require('../controllers/tripController');
 const eventController = require('../controllers/eventController');
+const tripController = require('../controllers/tripController');
 const app = express.Router();
 
 
 //add a new trip
-// get request
 app.get('/trips', tripController.getTrips);
 app.get('/events', eventController.getEvents);
 
@@ -68,16 +65,9 @@ app.delete('/remove-trip', tripController.removeTrip, (req,res) => {
 //   return res.status(200).send('successfully added to database');
 // });
 
-
-
-
-
-
-
 //catch-all route for unhandled requests
 app.use(function (req, res) {
-    res.status(404).sendFile(path.join(__dirname, '.', 'client', '404.html'));
-    
+  res.status(404).sendFile(path.join(__dirname, '.', 'client', '404.html'));
 });
 
 module.exports = app;

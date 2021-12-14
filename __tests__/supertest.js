@@ -18,8 +18,6 @@ describe('Route Testing', () => {
       return request(server)
         .get('/api/events')
         .expect(200)
-        //expect test to fail
-
     })
   })
   describe('/api/new-trip' , () => {
@@ -32,8 +30,5 @@ describe('Route Testing', () => {
       .expect(200)
     })
   })
-  // describe('/api/remove-trip' , () => {
-  //   it('')
-  // })
 })
 

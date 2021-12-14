@@ -4,7 +4,6 @@ const path = require('path');
 
 const apiRouter = require('./routes/api');
 
-
 app.use(express.json({type: 'application/x-www-form-urlencoded'}));
 // app.use(express.urlencoded({extended: true}));
 
@@ -29,14 +28,10 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
-  console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
 
 module.exports = app.listen(3000, () => {
-  console.log('Listening on port 3000...');
+  console.log('app listening on port 3000...')
 });
-
-// module.exports = app;
-

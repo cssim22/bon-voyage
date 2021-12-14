@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import TripModal from './TripModal.jsx';
-import NewTripModal from './NewTripModal.jsx';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-import { useFetch } from "react-async"
 import Map from './Map.jsx'
 import { Button } from "@material-ui/core";
-// import { BrowserRouter as Router } from 'react-router-dom';
+import Modal from 'react-modal';
+import NewTripModal from './NewTripModal.jsx';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
+import TripModal from './TripModal.jsx';
+
 
 Modal.setAppElement('#root');
 
